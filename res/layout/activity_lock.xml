@@ -1,0 +1,136 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.xiong.lockedgallery.LockActivity" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:paddingTop="@dimen/lock_acitivy_title_paddingtop"
+        android:text="@string/insert_password"
+        android:textSize="@dimen/lock_acitivy_title_textSize" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <EditText
+                android:id="@+id/lock_activity_edit_password"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="numberPassword"
+                android:enabled="false"
+                android:hint="@string/insert_password" />
+
+            <Button
+                android:id="@+id/lock_activity_btn_backspace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="←" />
+        </LinearLayout>
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/lock_activity_btn_1"
+                    android:layout_weight="1"
+                    android:text="1"
+                    android:width="0dp" />
+
+                <Button
+                    android:id="@+id/lock_activity_btn_2"
+                    android:layout_weight="1"
+                    android:text="2"
+                    android:width="0dp" />
+
+                <Button
+                    android:id="@+id/lock_activity_btn_3"
+                    android:layout_weight="1"
+                    android:text="3"
+                    android:width="0dp" />
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/lock_activity_btn_4"
+                    android:layout_weight="1"
+                    android:text="4"
+                    android:width="0dp" />
+
+                <Button
+                    android:id="@+id/lock_activity_btn_5"
+                    android:layout_weight="1"
+                    android:text="5"
+                    android:width="0dp" />
+
+                <Button
+                    android:id="@+id/lock_activity_btn_6"
+                    android:layout_weight="1"
+                    android:text="6"
+                    android:width="0dp" />
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/lock_activity_btn_7"
+                    android:layout_weight="1"
+                    android:text="7"
+                    android:width="0dp" />
+
+                <Button
+                    android:id="@+id/lock_activity_btn_8"
+                    android:layout_weight="1"
+                    android:text="8"
+                    android:width="0dp" />
+
+                <Button
+                    android:id="@+id/lock_activity_btn_9"
+                    android:layout_weight="1"
+                    android:text="9"
+                    android:width="0dp" />
+            </TableRow>
+
+            <TableRow>
+
+                <Button
+                    android:id="@+id/lock_activity_btn_confirm"
+                    android:layout_weight="1"
+                    android:text="确定"
+                    android:width="0dp" />
+
+                <Button
+                    android:id="@+id/lock_activity_btn_0"
+                    android:layout_weight="1"
+                    android:text="0"
+                    android:width="0dp" />
+
+                <Button
+                    android:id="@+id/lock_activity_btn_cancel"
+                    android:layout_weight="1"
+                    android:text="退出"
+                    android:width="0dp" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+
+</RelativeLayout>

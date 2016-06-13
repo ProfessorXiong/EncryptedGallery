@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">加密相册</string>
+    <string name="insert_password">请输入密码</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_home">图片列表</string>
+    <string name="home_activity_text_import">导入图片</string>
+    <string name="home_acitivity_dialolg1_btn_export_text">导出图片</string>
+    <string name="home_acitivity_dialolg1_btn_delete_text">删除图片</string>
+    <string name="title_activity_show_image">图片预览</string>
+    <string name="hello_world">Hello world!</string>
+
+</resources>
