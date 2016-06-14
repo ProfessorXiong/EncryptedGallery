@@ -8,8 +8,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -19,6 +21,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -26,8 +29,10 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class HomeActivity extends Activity {
@@ -147,22 +152,57 @@ public class HomeActivity extends Activity {
 	 * @param view
 	 */
 	public void importImages(View view) {
-		new Thread(){
-			public void run() {
-				File file = new File(Environment.getExternalStorageDirectory(),
-						"pic.jpg");
-				byte[] content = getByteFromFile(file);
-				SQLiteDatabase db = MySqliteHelper.getWriteableDB(HomeActivity.this);
-				ContentValues values = new ContentValues();
+		
+		//弹出一个对话框提示输入图片路径
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+			builder.setTitle("输入图片路径");
+			builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
 				
-				values.put(MySqliteHelper.COLUMN_CONTENT, content);
-				values.put(MySqliteHelper.COLUMN_PATH, file.getAbsolutePath());
-				db.insert(MySqliteHelper.TABLE_PICTURE, "", values);
-				db.close();
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					// 取得输入的 路径
+					String picPath = (String)((EditText)((AlertDialog)dialog).findViewById(R.id.home_activity_dialog2_edit1)).getText().toString();
+					final File file = new File(picPath);
+					//判断文件是否存在
+					if(file.isFile() && file.exists()){
+						//判断文件的后缀
+						if(file.getAbsolutePath().endsWith(".jpg")||file.getAbsolutePath().endsWith(".png")||file.getAbsolutePath().endsWith(".bmp")){
+							new Thread(){
+							public void run() {
+								byte[] content = getByteFromFile(file);
+								SQLiteDatabase db = MySqliteHelper.getWriteableDB(HomeActivity.this);
+								ContentValues values = new ContentValues();
+								
+								values.put(MySqliteHelper.COLUMN_CONTENT, content);
+								values.put(MySqliteHelper.COLUMN_PATH, file.getAbsolutePath());
+								db.insert(MySqliteHelper.TABLE_PICTURE, "", values);
+								db.close();
+								
+								mHander.sendEmptyMessage(REFRESH);
+							};
+						}.start();
+						}else{
+							Toast.makeText(HomeActivity.this, "文件格式不支持", Toast.LENGTH_SHORT).show();
+						}
+						
+					}else{
+						Toast.makeText(HomeActivity.this, "文件不存在!", Toast.LENGTH_SHORT).show();
+					}
+				}
+			}).setNegativeButton("取消", new DialogInterface.OnClickListener() {
 				
-				mHander.sendEmptyMessage(REFRESH);
-			};
-		}.start();
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					
+				}
+			});
+		View view1 = LayoutInflater.from(this).inflate(R.layout.home_activity_dialog2, null,false);
+		EditText edit = (EditText)view1.findViewById(R.id.home_activity_dialog2_edit1);
+		edit.setText(Environment.getExternalStorageDirectory().getAbsolutePath() + "/");
+		builder.setView(view1);
+		//弹出对话框
+		builder.show();
+		
 	}
 
 	/**
