@@ -29,11 +29,13 @@
         </activity>
         <activity
             android:name=".HomeActivity"
-            android:label="@string/title_activity_home" >
+            android:label="@string/title_activity_home"
+            android:launchMode="singleTask" >
         </activity>
         <activity
             android:name=".ShowImageActivity"
-            android:label="@string/title_activity_show_image" >
+            android:label="@string/title_activity_show_image"
+            android:launchMode="singleTask" >
         </activity>
     </application>
 
