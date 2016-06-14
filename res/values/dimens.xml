@@ -8,5 +8,7 @@
     <dimen name="grid_item_image_width">100dp</dimen>
     <dimen name="grid_item_image_height">100dp</dimen>
     <dimen name="grid_item_image_padding">10dp</dimen>
+    <dimen name="home_activity_text_padding">5dp</dimen>
+    <dimen name="home_activity_text_margin">5dp</dimen>
 
 </resources>
