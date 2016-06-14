@@ -45,6 +45,8 @@ public class HomeActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
+		
+		setTitle(this.toString());
 		bindViews();
 		
 		mHander = new Handler(){
@@ -103,7 +105,7 @@ public class HomeActivity extends Activity {
 						}
 					});
 				dialog.show();
-				return false;
+				return true;
 			}
 		});
 
