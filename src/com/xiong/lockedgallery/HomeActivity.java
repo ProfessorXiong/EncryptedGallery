@@ -282,6 +282,13 @@ public class HomeActivity extends Activity implements Listener<Bitmap>,
 		// 弹出对话框
 		builder.show();
 	}
+	/**
+	 * 从进入从网络上获取图片的界面
+	 * @param view
+	 */
+	public void goToWeb(View view){
+		startActivity(new Intent(this,WebImageActivity.class));
+	}
 
 	/**
 	 * 把文件转换成byte数组的方法
@@ -351,8 +358,6 @@ public class HomeActivity extends Activity implements Listener<Bitmap>,
 							R.dimen.grid_item_image_width),
 					(int) getResources().getDimension(
 							R.dimen.grid_item_image_height), true);
-			System.out.println(bm.getWidth());
-			System.out.println(bm.getHeight());
 			String _path = cursor.getString(cursor
 					.getColumnIndex(MySqliteHelper.COLUMN_PATH));
 			int _id = cursor.getInt(cursor
@@ -430,28 +435,10 @@ public class HomeActivity extends Activity implements Listener<Bitmap>,
 
 	@Override
 	public void onResponse(final Bitmap response) {
-		// TODO Auto-generated method stub
 		// 把图片保存到数据库里面去
 		new Thread() {
 			public void run() {
-				ByteArrayOutputStream bos = new ByteArrayOutputStream();
-				response.compress(Bitmap.CompressFormat.JPEG, 100, bos);
-				SQLiteDatabase db = MySqliteHelper
-						.getWriteableDB(HomeActivity.this);
-				ContentValues values = new ContentValues();
-
-				values.put(MySqliteHelper.COLUMN_CONTENT, bos.toByteArray());
-				values.put(MySqliteHelper.COLUMN_PATH, Environment
-						.getExternalStorageDirectory().getAbsolutePath()
-						+ "/"
-						+ random.nextInt(10000) + "web.jpg");
-				db.insert(MySqliteHelper.TABLE_PICTURE, "", values);
-				db.close();
-				try {
-					bos.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
+				MyApplication.saveBitmap(response, HomeActivity.this);
 				mHander.sendEmptyMessage(REFRESH);
 			};
 		}.start();

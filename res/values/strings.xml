@@ -7,9 +7,13 @@
     <string name="title_activity_home">图片列表</string>
     <string name="home_activity_text_import">导入本地图片</string>
     <string name="home_activity_text_import2">导入网络图片</string>
+    <string name="home_activity_text_web">去网上找图片!!</string>
     <string name="home_acitivity_dialolg1_btn_export_text">导出图片</string>
     <string name="home_acitivity_dialolg1_btn_delete_text">删除图片</string>
     <string name="title_activity_show_image">图片预览</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_web_image">美女集中营</string>
+    <string name="web_acitivity_text_tishi">小提示：长按保存图片     </string>
+    <string name="web_acitivity_text_huan">换一批</string>
 
 </resources>
