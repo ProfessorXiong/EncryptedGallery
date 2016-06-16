@@ -59,6 +59,7 @@ public class MyApplication extends Application {
 			public Bitmap getBitmap(String url) {
 				return imgCache.get(url);
 			}
+			
 		});
 		
 		return loader;
@@ -86,6 +87,5 @@ public class MyApplication extends Application {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		Toast.makeText(context, "图片保存到本地成功", Toast.LENGTH_SHORT).show();
 	}
 }

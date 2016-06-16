@@ -98,6 +98,7 @@ public class WebImageActivity extends FragmentActivity {
 				Picture pic = new Picture();
 				pic.title = obj.optString("title");
 				pic.picUrl = obj.optString("picUrl");
+				pic.url = obj.optString("url");
 				pics.add(pic);
 			}
 		} catch (JSONException e) {
