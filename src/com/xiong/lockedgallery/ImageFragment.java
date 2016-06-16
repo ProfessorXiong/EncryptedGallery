@@ -33,6 +33,8 @@ public class ImageFragment extends Fragment implements OnLongClickListener {
 		View view = inflater.inflate(R.layout.image_fragment_view, container, false);
 		//填充标题
 		((TextView)view.findViewById(R.id.image_fragment_text_title)).setText(pic.title);
+		//填充网址
+		((TextView)view.findViewById(R.id.image_fragment_text_url)).setText(pic.url);
 		//加载图片
 		ImageView image = (ImageView) view.findViewById(R.id.image_fragment_image1);
 		ImageListener listener = ImageLoader.getImageListener(image, R.drawable.ic_launcher, R.drawable.ic_launcher);

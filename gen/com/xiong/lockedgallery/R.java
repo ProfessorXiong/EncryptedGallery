@@ -36,7 +36,7 @@ public final class R {
         public static final int ic_launcher=0x7f020003;
     }
     public static final class id {
-        public static final int action_settings=0x7f08001a;
+        public static final int action_settings=0x7f08001b;
         public static final int grid_item_image=0x7f080014;
         public static final int home_acitivity_dialolg1_btn_delete=0x7f080016;
         public static final int home_acitivity_dialolg1_btn_export=0x7f080015;
@@ -45,6 +45,7 @@ public final class R {
         public static final int home_activity_layout1=0x7f080001;
         public static final int image_fragment_image1=0x7f080019;
         public static final int image_fragment_text_title=0x7f080018;
+        public static final int image_fragment_text_url=0x7f08001a;
         public static final int lock_activity_btn_0=0x7f08000e;
         public static final int lock_activity_btn_1=0x7f080004;
         public static final int lock_activity_btn_2=0x7f080005;
