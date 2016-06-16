@@ -103,7 +103,7 @@ public class LockActivity extends Activity implements OnClickListener {
 			break;
 		case R.id.lock_activity_btn_cancel:
 			finish();
-			System.exit(0);
+//			System.exit(0);
 			break;
 		default:
 			break;

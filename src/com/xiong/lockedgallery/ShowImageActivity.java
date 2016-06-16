@@ -6,17 +6,20 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 
-public class ShowImageActivity extends Activity {
+public class ShowImageActivity extends Activity implements OnSeekBarChangeListener {
 	private ImageView image;
-
+	private SeekBar seekBar;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show_image);
 
 		image = (ImageView) findViewById(R.id.show_activity_image);
-		
+		seekBar = (SeekBar) findViewById(R.id.view_activity_seekbar1);
+		seekBar.setOnSeekBarChangeListener(this);;
 		getBitmapFromDB();
 	}
 
@@ -29,5 +32,23 @@ public class ShowImageActivity extends Activity {
 		}
 		image.setImageBitmap(BitmapFactory.decodeByteArray(data, 0, data.length));
 		db.close();
+	}
+
+	@Override
+	public void onProgressChanged(SeekBar seekBar, int progress,
+			boolean fromUser) {
+		float times = (float)progress * 2 / 100;
+		image.setScaleX(times);
+		image.setScaleY(times);
+	}
+
+	@Override
+	public void onStartTrackingTouch(SeekBar seekBar) {
+		
+	}
+
+	@Override
+	public void onStopTrackingTouch(SeekBar seekBar) {
+		
 	}
 }

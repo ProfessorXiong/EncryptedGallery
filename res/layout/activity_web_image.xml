@@ -1,0 +1,45 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.xiong.lockedgallery.WebImageActivity" >
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView
+         
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="@string/web_acitivity_text_tishi"
+	    />
+        <TextView 
+            android:id="@+id/web_activity_text_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/home_activity_text_margin"
+            />
+    </LinearLayout>
+	
+	<TextView 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:onClick="nextPictures"
+	    android:clickable="true"
+	    android:padding="@dimen/home_activity_text_padding"
+	    android:background="@drawable/btn_bg"
+	    android:gravity="center"
+	    android:text="@string/web_acitivity_text_huan"/>
+    <android.support.v4.view.ViewPager 
+        android:id="@+id/web_activity_pager1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+        
+
+</LinearLayout>

@@ -1,19 +1,29 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.xiong.lockedgallery.HomeActivity" >
+    android:paddingTop="@dimen/activity_vertical_margin" >
+
+    
+
+    <GridView
+        android:id="@+id/home_activity_grid"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="@dimen/home_activity_text_padding"
+        android:numColumns="3" >
+    </GridView>
 
     <LinearLayout
         android:id="@+id/home_activity_layout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_alignParentBottom="true" >
+        android:orientation="horizontal" >
 
         <TextView
             android:layout_width="0dp"
@@ -39,15 +49,17 @@
             android:background="@drawable/btn_bg"
             android:text="@string/home_activity_text_import2" />
     </LinearLayout>
-
-    <GridView
-        android:id="@+id/home_activity_grid"
-        android:layout_above="@id/home_activity_layout1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="@dimen/home_activity_text_padding"
-        android:numColumns="3" >
-    </GridView>
-
     
-</RelativeLayout>
+    <TextView 
+        android:onClick="goToWeb"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/home_activity_text_marginTop"
+        android:padding="@dimen/home_activity_text_padding"
+        android:background="@drawable/btn_bg"
+        android:gravity="center"
+        android:text="@string/home_activity_text_web"
+        />
+    
+</LinearLayout>
