@@ -21,7 +21,7 @@
         <activity
             android:name=".LockActivity"
             android:label="@string/app_name"
-            android:launchMode="singleTask" >
+            android:launchMode="singleInstance" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -30,13 +30,11 @@
         </activity>
         <activity
             android:name=".HomeActivity"
-            android:label="@string/title_activity_home"
-            android:launchMode="singleTask" >
+            android:label="@string/title_activity_home" >
         </activity>
         <activity
             android:name=".ShowImageActivity"
-            android:label="@string/title_activity_show_image"
-            android:launchMode="singleTask" >
+            android:label="@string/title_activity_show_image" >
         </activity>
         <activity
             android:name=".WebImageActivity"

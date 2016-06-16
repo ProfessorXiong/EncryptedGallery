@@ -9,6 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -49,7 +50,7 @@ public class WebImageActivity extends FragmentActivity {
 		adapter = new MyFragmentAdapter(getSupportFragmentManager(),pics);
 		pager.setAdapter(adapter);
 		// 从网络上加载数据填充pics
-		loadImageFromInternet(1);
+//		loadImageFromInternet(1);
 		random = new Random();
 	}
 	/**
@@ -106,7 +107,21 @@ public class WebImageActivity extends FragmentActivity {
 
 		return pics;
 	}
-
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		//加载第一页的图片
+		loadImageFromInternet(1);
+		super.onResume();
+	}
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		//清空图片
+		pics.clear();
+		adapter.notifyDataSetChanged();
+		super.onPause();
+	}
 	class MyFragmentAdapter extends FragmentStatePagerAdapter {
 		private List<Picture> pics;
 		// 构造方法
